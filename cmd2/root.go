@@ -16,6 +16,9 @@ var RootCmd = &cobra.Command{
 	Use:   "cmd2",
 	Short: "cmd2",
 	Long:  `cmd2`,
+	PreRun: func(cmd *cobra.Command, args []string) {
+		viper.BindPFlag("database-url", cmd.Flags().Lookup("database-url"))
+	},
 	RunE: func(cmd *cobra.Command, args []string) error {
 		var err error = nil
 		fmt.Printf("cmd2 database-url: %s\n", viper.GetString("database-url"))
@@ -32,6 +35,7 @@ func Execute() {
 
 func init() {
 	cobra.OnInitialize(initConfig)
+	fmt.Printf(">>>>>> cmd2.init()\n")
 	defaultDatabaseUrl := ""
 	RootCmd.Flags().String("database-url", defaultDatabaseUrl, "URL of database to initialize [TEST_DATABASE_URL]")
 
@@ -42,6 +46,8 @@ func init() {
 	viper.SetEnvPrefix("TEST")
 
 	// Define flags in Viper.
+
+	fmt.Printf(">>>>>> cmd2.init() %v\n", RootCmd.Flags().Lookup("database-url"))
 
 	viper.SetDefault("database-url", defaultDatabaseUrl)
 	viper.BindPFlag("database-url", RootCmd.Flags().Lookup("database-url"))
