@@ -36,7 +36,13 @@ To recreate the bug:
 1. In `cmd/cmd4.go`, uncomment
 
     ```go
-      RootCmd.AddCommand(cmd4.RootCmd)
+   package cmd
+
+   import "github.com/docktermj/go-viper-bug/cmd4"
+
+   func init() {
+       RootCmd.AddCommand(cmd4.RootCmd)
+   }
     ```
 
 1. Now subcommand `cmd3` fails.
