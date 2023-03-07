@@ -9,10 +9,10 @@ import (
 )
 
 var RootCmd = &cobra.Command{
-	Use:   "senzing-tools",
-	Short: "Tools to help use the Senzing API",
+	Use:   "viper-test",
+	Short: "Show a bug in viper",
 	Long: `
-		Welcome to senzing-tools!
+		Welcome to go-viper-bug!
 		`,
 }
 
