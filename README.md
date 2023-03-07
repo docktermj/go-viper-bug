@@ -13,12 +13,12 @@ To recreate the bug:
    Example:
 
     ```console
-    go run main.go cmd3 --database-url  postgresql://example.com
+    go run main.go cmd3 --database-url postgresql://example.com
     ```
 
 1. Failed test.
    Example:
 
     ```console
-    go run main.go cmd2 --database-url  postgresql://example.com
+    go run main.go cmd2 --database-url postgresql://example.com
     ```
