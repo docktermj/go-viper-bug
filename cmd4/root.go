@@ -1,6 +1,6 @@
 /*
  */
-package cmd2
+package cmd4
 
 import (
 	"fmt"
@@ -13,12 +13,12 @@ import (
 
 // RootCmd represents the base command when called without any subcommands
 var RootCmd = &cobra.Command{
-	Use:   "cmd2",
-	Short: "cmd2",
-	Long:  `cmd2`,
+	Use:   "cmd4",
+	Short: "cmd4",
+	Long:  `cmd4`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		var err error = nil
-		fmt.Printf("cmd2 database-url: %s\n", viper.GetString("database-url"))
+		fmt.Printf("cmd4 database-url: %s\n", viper.GetString("database-url"))
 		return err
 	},
 }
